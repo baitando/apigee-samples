@@ -1,0 +1,19 @@
+{
+  "name": "apigee-errorhandling",
+  "version": "1.0.0",
+  "description": "Install via  sudo npm install -g apigeetool",
+  "main": "index.js",
+  "scripts": {
+    "init": "ts-node scripts/init.ts",
+    "deploy": "ts-node scripts/deploy.ts"
+  },
+  "author": "Andreas Hirsch",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^12.7.5",
+    "apigeetool": "^0.12.0",
+    "dotenv": "^8.1.0",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.3"
+  }
+}
