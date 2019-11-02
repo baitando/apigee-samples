@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AssignMessage.DummyResponse.XML">
+    <DisplayName>AssignMessage.DummyResponse.XML</DisplayName>
+    <Set>
+        <Payload contentType="application/xml">
+            <news>
+                <name>My First News Entry</name>
+            </news>
+        </Payload>
+    </Set>
+    <AssignTo type="response" transport="http" createNew="false"/>
+</AssignMessage>

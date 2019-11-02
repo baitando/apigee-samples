@@ -1,0 +1,46 @@
+# Missing accept header
+GET http://{{organization}}.apigee.net/apigee-errorhandling/news
+
+###
+
+# Wrong accept header
+GET http://{{organization}}.apigee.net/apigee-errorhandling/news
+Accept: application/pdf
+
+###
+
+# JSON: Trigger normal execution
+GET http://{{organization}}.apigee.net/apigee-errorhandling/news
+Accept: application/json
+
+####
+
+# XML: Trigger normal execution
+GET http://{{organization}}.apigee.net/apigee-errorhandling/news
+Accept: application/xml
+
+####
+
+# JSON: Trigger unauthorized error
+GET http://{{organization}}.apigee.net/apigee-errorhandling/news?scenario=unauthorized
+Accept: application/json
+
+###
+
+# XML: Trigger unauthorized error
+GET http://{{organization}}.apigee.net/apigee-errorhandling/news?scenario=unauthorized
+Accept: application/xml
+
+###
+
+# JSON: Trigger forbidden error
+GET http://{{organization}}.apigee.net/apigee-errorhandling/news?scenario=forbidden
+Accept: application/json
+
+###
+
+# XML: Trigger forbidden error
+GET http://{{organization}}.apigee.net/apigee-errorhandling/news?scenario=forbidden
+Accept: application/xml
+
+###

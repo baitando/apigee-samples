@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AssignMessage.DummyResponse.JSON">
+    <DisplayName>AssignMessage.DummyResponse.JSON</DisplayName>
+    <Set>
+        <Payload contentType="application/json">
+            {
+                "name": "My First News Entry"
+            }
+        </Payload>
+    </Set>
+    <AssignTo type="response" transport="http" createNew="false"/>
+</AssignMessage>

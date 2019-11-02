@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<RaiseFault async="false" continueOnError="false" enabled="true" name="RaiseFault.Unauthorized">
-    <DisplayName>RaiseFault.Unauthorized</DisplayName>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RaiseFault.WrongAcceptHeader">
+    <DisplayName>RaiseFault.WrongAcceptHeader</DisplayName>
 
     <FaultResponse>
         <AssignVariable>
             <Name>flow.api.error.code</Name>
-            <Value>401</Value>
+            <Value>406</Value>
         </AssignVariable>
         <AssignVariable>
             <Name>flow.api.error.reason</Name>
-            <Value>Unauthorized</Value>
+            <Value>Unsupported Accept Header</Value>
         </AssignVariable>
         <AssignVariable>
             <Name>flow.api.error.info</Name>
@@ -17,11 +17,11 @@
         </AssignVariable>
         <AssignVariable>
             <Name>flow.api.error.status</Name>
-            <Value>401</Value>
+            <Value>406</Value>
         </AssignVariable>
         <AssignVariable>
             <Name>flow.api.error.message</Name>
-            <Value>You receive an 'unauthorized' error because you set the scenario query parameter to the respective value</Value>
+            <Value>Given accept header is not supported. Possible values are application/json and application/xml.</Value>
         </AssignVariable>
     </FaultResponse>
 </RaiseFault>

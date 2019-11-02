@@ -1,6 +1,8 @@
 # Intellij
 .idea
 
+*.env.json
+
 # Logs
 logs
 *.log

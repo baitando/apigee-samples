@@ -1,28 +1,72 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ProxyEndpoint name="default">
-    <Description/>
-    <FaultRules/>
-    <PreFlow name="PreFlow">
-        <Request>
 
+    <DefaultFaultRule name="DefaultFaultRule">
+        <Step>
+            <FaultRules/>
+            <Name>RaiseFault.Plain</Name>
+            <Condition>(request.header.accept = null) or (request.header.accept != "application/json") or (request.header.accept != "application/xml")</Condition>
+        </Step>
+        <Step>
+            <FaultRules/>
+            <Name>RaiseFault.JSON</Name>
+            <Condition>(request.header.accept = "application/json")</Condition>
+        </Step>
+        <Step>
+            <FaultRules/>
+            <Name>RaiseFault.XML</Name>
+            <Condition>(request.header.accept = "application/xml")</Condition>
+        </Step>
+        <AlwaysEnforce>true</AlwaysEnforce>
+    </DefaultFaultRule>
+
+    <PreFlow>
+        <Request>
+            <Step>
+                <Name>RaiseFault.MissingAcceptHeader</Name>
+                <Condition>request.header.accept = null</Condition>
+            </Step>
+            <Step>
+                <Name>RaiseFault.WrongAcceptHeader</Name>
+                <Condition>(request.header.accept != "application/json") or (request.header.accept != "application/xml")</Condition>
+            </Step>
         </Request>
-        <Response/>
     </PreFlow>
-    <PostFlow name="PostFlow">
-        <Request/>
-        <Response/>
-    </PostFlow>
-    <Flows/>
+
+    <Flows>
+        <Flow name="DemoFlow">
+            <Request>
+                <Step>
+                    <Name>RaiseFault.Unauthorized</Name>
+                    <Condition>(request.queryparam.scenario != null) and (request.queryparam.scenario = "unauthorized")
+                    </Condition>
+                </Step>
+                <Step>
+                    <Name>AssignMessage.DummyResponse.JSON</Name>
+                    <Condition>(request.header.accept = "application/json")</Condition>
+                </Step>
+                <Step>
+                    <Name>AssignMessage.DummyResponse.XML</Name>
+                    <Condition>(request.header.accept = "application/xml")</Condition>
+                </Step>
+                <Step>
+                    <Name>RaiseFault.Forbidden</Name>
+                    <Condition>(request.queryparam.scenario != null) and (request.queryparam.scenario = "forbidden")
+                    </Condition>
+                </Step>
+            </Request>
+            <Condition>(proxy.pathsuffix MatchesPath "/news") and (request.verb = "GET")</Condition>
+        </Flow>
+    </Flows>
+
     <HTTPProxyConnection>
         <BasePath>/apigee-errorhandling</BasePath>
         <Properties/>
         <VirtualHost>default</VirtualHost>
-        <VirtualHost>secure</VirtualHost>
     </HTTPProxyConnection>
+
     <RouteRule name="preflight">
         <Condition>request.verb == "OPTIONS"</Condition>
     </RouteRule>
-    <RouteRule name="default">
-        <TargetEndpoint>default</TargetEndpoint>
-    </RouteRule>
+    <RouteRule name="default"/>
 </ProxyEndpoint>

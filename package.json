@@ -4,7 +4,6 @@
   "description": "Install via  sudo npm install -g apigeetool",
   "main": "index.js",
   "scripts": {
-    "init": "ts-node scripts/init.ts",
     "deploy": "ts-node scripts/deploy.ts"
   },
   "author": "Andreas Hirsch",
