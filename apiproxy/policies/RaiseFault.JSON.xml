@@ -1,30 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<RaiseFault async="false" continueOnError="false" enabled="true" name="RaiseFault.JSON">
+<AssignMessage name="RaiseFault.JSON">
     <DisplayName>RaiseFault.JSON</DisplayName>
-    <FaultRules/>
-    <Properties/>
-    <FaultResponse>
-        <Set>
-            <Headers>
-                <Header name="Content-Type">application/json</Header>
-            </Headers>
-            <Payload contentType="application/json" variablePrefix="@" variableSuffix="#">
-                {
-                    "error": {
-                        "detail": {
-                            "errorcode": "@flow.api.error.code#",
-                            "message": "@flow.api.error.reason#",
-                            "custom": {
-                                "info": "@flow.api.error.info#"
-                            }
-                        },
-                        "faultstring": "@flow.api.error.message#"
-                    }
-                }
-            </Payload>
-            <StatusCode>{flow.api.error.code}</StatusCode>
-            <ReasonPhrase>{flow.api.error.reason}</ReasonPhrase>
-        </Set>
-    </FaultResponse>
+
+    <Set>
+        <Payload contentType="application/problem+json" variablePrefix="@" variableSuffix="#">
+            {
+                "type": "apigee-errorhandling",
+                "title": "@message.reason.phrase#",
+                "status": "@message.status.code#",
+                "detail": "@custom.error.detail#",
+                "instance": "@request.path#"
+            }
+        </Payload>
+    </Set>
+
     <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
-</RaiseFault>
+</AssignMessage>

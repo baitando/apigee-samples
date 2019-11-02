@@ -3,24 +3,12 @@
     <DisplayName>RaiseFault.WrongAcceptHeader</DisplayName>
 
     <FaultResponse>
+        <Set>
+            <StatusCode>406</StatusCode>
+            <ReasonPhrase>Wrong Accept Header</ReasonPhrase>
+        </Set>
         <AssignVariable>
-            <Name>flow.api.error.code</Name>
-            <Value>406</Value>
-        </AssignVariable>
-        <AssignVariable>
-            <Name>flow.api.error.reason</Name>
-            <Value>Unsupported Accept Header</Value>
-        </AssignVariable>
-        <AssignVariable>
-            <Name>flow.api.error.info</Name>
-            <Value>https://[tbd]</Value>
-        </AssignVariable>
-        <AssignVariable>
-            <Name>flow.api.error.status</Name>
-            <Value>406</Value>
-        </AssignVariable>
-        <AssignVariable>
-            <Name>flow.api.error.message</Name>
+            <Name>custom.error.detail</Name>
             <Value>Given accept header is not supported. Possible values are application/json and application/xml.</Value>
         </AssignVariable>
     </FaultResponse>

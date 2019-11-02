@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<RaiseFault async="false" continueOnError="false" enabled="true" name="RaiseFault.Plain">
+<AssignMessage name="RaiseFault.Plain">
     <DisplayName>RaiseFault.Plain</DisplayName>
-    <FaultRules/>
-    <Properties/>
-    <FaultResponse>
-        <Set>
-            <Headers>
-                <Header name="Content-Type">text/plain</Header>
-            </Headers>
-            <Payload contentType="text/plain" variablePrefix="@" variableSuffix="#">@flow.api.error.message#</Payload>
-            <StatusCode>{flow.api.error.code}</StatusCode>
-            <ReasonPhrase>{flow.api.error.reason}</ReasonPhrase>
-        </Set>
-    </FaultResponse>
+
+    <Set>
+        <Payload contentType="text/plain" variablePrefix="@" variableSuffix="#">@custom.error.detail#</Payload>
+    </Set>
+
     <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
-</RaiseFault>
+</AssignMessage>

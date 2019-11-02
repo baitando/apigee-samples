@@ -3,22 +3,28 @@
 
     <DefaultFaultRule name="DefaultFaultRule">
         <Step>
-            <FaultRules/>
             <Name>RaiseFault.Plain</Name>
-            <Condition>(request.header.accept = null) or (request.header.accept != "application/json") or (request.header.accept != "application/xml")</Condition>
+            <Condition>(request.header.accept = null) or ((request.header.accept != "application/json") and (request.header.accept != "application/xml"))</Condition>
         </Step>
         <Step>
-            <FaultRules/>
             <Name>RaiseFault.JSON</Name>
             <Condition>(request.header.accept = "application/json")</Condition>
         </Step>
         <Step>
-            <FaultRules/>
             <Name>RaiseFault.XML</Name>
             <Condition>(request.header.accept = "application/xml")</Condition>
         </Step>
         <AlwaysEnforce>true</AlwaysEnforce>
     </DefaultFaultRule>
+
+    <FaultRules>
+        <FaultRule name="EnhanceWrongApiKeyError">
+            <Step>
+                <Name>AssignMessage.EnhanceMissingApiKeyError</Name>
+            </Step>
+            <Condition>(fault.name = "FailedToResolveAPIKey")</Condition>
+        </FaultRule>
+    </FaultRules>
 
     <PreFlow>
         <Request>
@@ -28,7 +34,8 @@
             </Step>
             <Step>
                 <Name>RaiseFault.WrongAcceptHeader</Name>
-                <Condition>(request.header.accept != "application/json") or (request.header.accept != "application/xml")</Condition>
+                <Condition>(request.header.accept != "application/json") and (request.header.accept != "application/xml")
+                </Condition>
             </Step>
         </Request>
     </PreFlow>
@@ -38,7 +45,11 @@
             <Request>
                 <Step>
                     <Name>RaiseFault.Unauthorized</Name>
-                    <Condition>(request.queryparam.scenario != null) and (request.queryparam.scenario = "unauthorized")
+                    <Condition>(request.queryparam.scenario != null) and (request.queryparam.scenario = "unauthorized")</Condition>
+                </Step>
+                <Step>
+                    <Name>VerifyApiKey</Name>
+                    <Condition>(request.queryparam.scenario != null) and (request.queryparam.scenario = "wrongkey")
                     </Condition>
                 </Step>
                 <Step>
@@ -51,8 +62,7 @@
                 </Step>
                 <Step>
                     <Name>RaiseFault.Forbidden</Name>
-                    <Condition>(request.queryparam.scenario != null) and (request.queryparam.scenario = "forbidden")
-                    </Condition>
+                    <Condition>(request.queryparam.scenario != null) and (request.queryparam.scenario = "forbidden")</Condition>
                 </Step>
             </Request>
             <Condition>(proxy.pathsuffix MatchesPath "/news") and (request.verb = "GET")</Condition>

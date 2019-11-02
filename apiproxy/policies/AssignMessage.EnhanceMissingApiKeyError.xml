@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AssignMessage.EnhanceMissingApiKeyError">
+    <DisplayName>AssignMessage.EnhanceMissingApiKeyError</DisplayName>
+    <AssignVariable>
+        <Name>custom.error.detail</Name>
+        <Value>API Key in header x-api-key is missing.</Value>
+    </AssignVariable>
+</AssignMessage>

@@ -1,27 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <RaiseFault async="false" continueOnError="false" enabled="true" name="RaiseFault.Forbidden">
     <DisplayName>RaiseFault.Forbidden</DisplayName>
+
     <FaultResponse>
         <AssignVariable>
-            <Name>flow.api.error.code</Name>
-            <Value>403</Value>
+            <Name>custom.error.detail</Name>
+            <Value>You receive a 'forbidden' error because you set the scenario query parameter to the respective value.</Value>
         </AssignVariable>
-        <AssignVariable>
-            <Name>flow.api.error.reason</Name>
-            <Value>Forbidden</Value>
-        </AssignVariable>
-        <AssignVariable>
-            <Name>flow.api.error.info</Name>
-            <Value>https://[tbd]</Value>
-        </AssignVariable>
-        <AssignVariable>
-            <Name>flow.api.error.status</Name>
-            <Value>403</Value>
-        </AssignVariable>
-        <AssignVariable>
-            <Name>flow.api.error.message</Name>
-            <Value>You receive a 'forbidden' error because you set the scenario query parameter to the respective value</Value>
-        </AssignVariable>
+        <Set>
+            <StatusCode>403</StatusCode>
+            <ReasonPhrase>Forbidden</ReasonPhrase>
+        </Set>
     </FaultResponse>
-    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
 </RaiseFault>

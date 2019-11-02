@@ -1,28 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<RaiseFault async="false" continueOnError="false" enabled="true" name="RaiseFault.XML">
+<AssignMessage name="RaiseFault.XML">
     <DisplayName>RaiseFault.XML</DisplayName>
-    <FaultRules/>
-    <Properties/>
-    <FaultResponse>
-        <Set>
-            <Headers>
-                <Header name="Content-Type">application/xml</Header>
-            </Headers>
-            <Payload contentType="application/xml" variablePrefix="@" variableSuffix="#">
-                <error>
-                    <detail>
-                        <errorcode>@flow.api.error.code#</errorcode>
-                        <message>@flow.api.error.reason#</message>
-                        <custom>
-                            <info>@flow.api.error.info#</info>
-                        </custom>
-                    </detail>
-                    <faultstring>@flow.api.error.message#</faultstring>
-                </error>
-            </Payload>
-            <StatusCode>{flow.api.error.code}</StatusCode>
-            <ReasonPhrase>{flow.api.error.reason}</ReasonPhrase>
-        </Set>
-    </FaultResponse>
+
+    <Set>
+        <Payload contentType="application/xml" variablePrefix="@" variableSuffix="#">
+            <problem>
+                <type>apigee-errorhandling</type>
+                <title>@message.reason.phrase#</title>
+                <status>@message.status.code#</status>
+                <detail>@custom.error.detail#</detail>
+                <instance>@request.path#</instance>
+            </problem>
+        </Payload>
+    </Set>
+
     <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
-</RaiseFault>
+</AssignMessage>

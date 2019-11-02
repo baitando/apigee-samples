@@ -44,3 +44,9 @@ GET http://{{organization}}.apigee.net/apigee-errorhandling/news?scenario=forbid
 Accept: application/xml
 
 ###
+
+# JSON: Wrong API key
+GET http://{{organization}}.apigee.net/apigee-errorhandling/news?scenario=wrongkey
+Accept: application/json
+
+###

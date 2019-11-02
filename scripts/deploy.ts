@@ -20,7 +20,7 @@ async function deploy(): Promise<boolean> {
     try {
         console.log("Starting deployment of proxy");
         await sdk.deployProxy(proxyOpts);
-        console.log("Deployment of proxy suceeded");
+        console.log("Deployment of proxy succeeded");
         return true;
     } catch (err) {
         console.log("Deployment of proxy failed: " + err);

@@ -3,25 +3,13 @@
     <DisplayName>RaiseFault.Unauthorized</DisplayName>
 
     <FaultResponse>
+        <Set>
+            <StatusCode>401</StatusCode>
+            <ReasonPhrase>Unauthorized</ReasonPhrase>
+        </Set>
         <AssignVariable>
-            <Name>flow.api.error.code</Name>
-            <Value>401</Value>
-        </AssignVariable>
-        <AssignVariable>
-            <Name>flow.api.error.reason</Name>
-            <Value>Unauthorized</Value>
-        </AssignVariable>
-        <AssignVariable>
-            <Name>flow.api.error.info</Name>
-            <Value>https://[tbd]</Value>
-        </AssignVariable>
-        <AssignVariable>
-            <Name>flow.api.error.status</Name>
-            <Value>401</Value>
-        </AssignVariable>
-        <AssignVariable>
-            <Name>flow.api.error.message</Name>
-            <Value>You receive an 'unauthorized' error because you set the scenario query parameter to the respective value</Value>
+            <Name>custom.error.detail</Name>
+            <Value>You receive an 'unauthorized' error because you set the scenario query parameter to the respective value.</Value>
         </AssignVariable>
     </FaultResponse>
 </RaiseFault>
