@@ -5,7 +5,7 @@
     <FaultResponse>
         <AssignVariable>
             <Name>custom.error.detail</Name>
-            <Value>You receive a 'forbidden' error because you set the scenario query parameter to the respective value.</Value>
+            <Value>You are not allowed to access this resource.</Value>
         </AssignVariable>
         <Set>
             <StatusCode>403</StatusCode>

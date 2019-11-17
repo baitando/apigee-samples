@@ -1,52 +1,66 @@
+# JSON: Get news entry
+GET http://{{organization}}.apigee.net/apigee-errorhandling/news/35711
+Accept: application/json
+Authorization: Basic dummy letmein
+
+####
+
+# XML: Get news entry
+GET http://{{organization}}.apigee.net/apigee-errorhandling/news/35711
+Accept: application/xml
+Authorization: Basic dummy letmein
+
+####
+
+# JSON: Force internal server error
+GET http://{{organization}}.apigee.net/apigee-errorhandling/news/112
+Accept: application/json
+Authorization: Basic dummy letmein
+
+###
+
+# XML: Force internal server error
+GET http://{{organization}}.apigee.net/apigee-errorhandling/news/112
+Accept: application/xml
+Authorization: Basic dummy letmein
+
+###
+
 # Missing accept header
-GET http://{{organization}}.apigee.net/apigee-errorhandling/news
+GET http://{{organization}}.apigee.net/apigee-errorhandling/news/35711
+Authorization: Basic dummy letmein
 
 ###
 
 # Wrong accept header
-GET http://{{organization}}.apigee.net/apigee-errorhandling/news
+GET http://{{organization}}.apigee.net/apigee-errorhandling/news/35711
 Accept: application/pdf
+Authorization: Basic dummy letmein
 
 ###
 
-# JSON: Trigger normal execution
-GET http://{{organization}}.apigee.net/apigee-errorhandling/news
-Accept: application/json
-
-####
-
-# XML: Trigger normal execution
-GET http://{{organization}}.apigee.net/apigee-errorhandling/news
-Accept: application/xml
-
-####
-
-# JSON: Trigger unauthorized error
-GET http://{{organization}}.apigee.net/apigee-errorhandling/news?scenario=unauthorized
+# JSON: Unauthorized
+GET http://{{organization}}.apigee.net/apigee-errorhandling/news/35711
 Accept: application/json
 
 ###
 
-# XML: Trigger unauthorized error
-GET http://{{organization}}.apigee.net/apigee-errorhandling/news?scenario=unauthorized
+# XML: Unauthorized
+GET http://{{organization}}.apigee.net/apigee-errorhandling/news/35711
 Accept: application/xml
 
 ###
 
-# JSON: Trigger forbidden error
-GET http://{{organization}}.apigee.net/apigee-errorhandling/news?scenario=forbidden
+# JSON: Forbidden
+GET http://{{organization}}.apigee.net/apigee-errorhandling/news/35711
 Accept: application/json
+Authorization: Basic dummy wrongpassword
 
 ###
 
 # XML: Trigger forbidden error
-GET http://{{organization}}.apigee.net/apigee-errorhandling/news?scenario=forbidden
+GET http://{{organization}}.apigee.net/apigee-errorhandling/news/35711
 Accept: application/xml
-
-###
-
-# JSON: Wrong API key
-GET http://{{organization}}.apigee.net/apigee-errorhandling/news?scenario=wrongkey
-Accept: application/json
+Authorization: Basic dummy wrongpassword
 
 ###

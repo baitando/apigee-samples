@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AssignMessage.EnhanceInternalServerError">
+    <DisplayName>AssignMessage.EnhanceInternalServerError</DisplayName>
+    <AssignVariable>
+        <Name>custom.error.detail</Name>
+        <Value>Please check to find out why this error occured.</Value>
+    </AssignVariable>
+</AssignMessage>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AssignMessage.ForceInternalServerError">
+    <DisplayName>AssignMessage.ForceInternalServerError</DisplayName>
+    <Set>
+        <Payload contentType="application/json" variablePrefix="@" variableSuffix="#">
+            {
+                "title": "@this.one.does.not.exist#"
+            }
+        </Payload>
+    </Set>
+    <AssignTo type="response" transport="http" createNew="false"/>
+</AssignMessage>

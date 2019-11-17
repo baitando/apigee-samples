@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RaiseFault.UnknownNewsEntry">
+    <DisplayName>RaiseFault.UnknownNewsEntry</DisplayName>
+
+    <FaultResponse>
+        <Set>
+            <StatusCode>404</StatusCode>
+            <ReasonPhrase>News Entry Not Found</ReasonPhrase>
+        </Set>
+        <AssignVariable>
+            <Name>custom.error.detail</Name>
+            <Template>The news entry with ID {id} does not exist.</Template>
+        </AssignVariable>
+    </FaultResponse>
+</RaiseFault>

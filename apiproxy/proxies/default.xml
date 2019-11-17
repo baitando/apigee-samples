@@ -18,16 +18,27 @@
     </DefaultFaultRule>
 
     <FaultRules>
-        <FaultRule name="EnhanceWrongApiKeyError">
+        <FaultRule name="EnhanceInternalServerError">
             <Step>
-                <Name>AssignMessage.EnhanceMissingApiKeyError</Name>
+                <Name>AssignMessage.EnhanceInternalServerError</Name>
             </Step>
-            <Condition>(fault.name = "FailedToResolveAPIKey")</Condition>
+            <Condition>(fault.name = "UnresolvedVariable")</Condition>
         </FaultRule>
     </FaultRules>
 
     <PreFlow>
         <Request>
+            <Step>
+                <Name>RaiseFault.Unauthorized</Name>
+                <Condition>(request.header.authorization = null)</Condition>
+            </Step>
+            <Step>
+                <Name>BasicAuthentication</Name>
+            </Step>
+            <Step>
+                <Name>RaiseFault.Forbidden</Name>
+                <Condition>(username != "dummy") or (password != "letmein")</Condition>
+            </Step>
             <Step>
                 <Name>RaiseFault.MissingAcceptHeader</Name>
                 <Condition>request.header.accept = null</Condition>
@@ -44,13 +55,15 @@
         <Flow name="DemoFlow">
             <Request>
                 <Step>
-                    <Name>RaiseFault.Unauthorized</Name>
-                    <Condition>(request.queryparam.scenario != null) and (request.queryparam.scenario = "unauthorized")</Condition>
+                    <Name>ExtractVariables.IdFromPath</Name>
                 </Step>
                 <Step>
-                    <Name>VerifyApiKey</Name>
-                    <Condition>(request.queryparam.scenario != null) and (request.queryparam.scenario = "wrongkey")
-                    </Condition>
+                    <Name>AssignMessage.ForceInternalServerError</Name>
+                    <Condition>(id = 112)</Condition>
+                </Step>
+                <Step>
+                    <Name>RaiseFault.UnknownNewsEntry</Name>
+                    <Condition>(id != 35711)</Condition>
                 </Step>
                 <Step>
                     <Name>AssignMessage.DummyResponse.JSON</Name>
@@ -60,12 +73,8 @@
                     <Name>AssignMessage.DummyResponse.XML</Name>
                     <Condition>(request.header.accept = "application/xml")</Condition>
                 </Step>
-                <Step>
-                    <Name>RaiseFault.Forbidden</Name>
-                    <Condition>(request.queryparam.scenario != null) and (request.queryparam.scenario = "forbidden")</Condition>
-                </Step>
             </Request>
-            <Condition>(proxy.pathsuffix MatchesPath "/news") and (request.verb = "GET")</Condition>
+            <Condition>(proxy.pathsuffix MatchesPath "/news/*") and (request.verb = "GET")</Condition>
         </Flow>
     </Flows>
 
