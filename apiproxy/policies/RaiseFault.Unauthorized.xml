@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <RaiseFault async="false" continueOnError="false" enabled="true" name="RaiseFault.Unauthorized">
-    <DisplayName>RaiseFault.Unauthorized</DisplayName>
+    <DisplayName>Indicate that the authorization header is missing</DisplayName>
 
     <FaultResponse>
         <Set>
@@ -9,7 +9,7 @@
         </Set>
         <AssignVariable>
             <Name>custom.error.detail</Name>
-            <Value>You receive an 'unauthorized' error because you set the scenario query parameter to the respective value.</Value>
+            <Value>Authorization header is missing.</Value>
         </AssignVariable>
     </FaultResponse>
 </RaiseFault>

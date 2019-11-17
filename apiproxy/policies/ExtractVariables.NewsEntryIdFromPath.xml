@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ExtractVariables async="false" continueOnError="false" enabled="true" name="ExtractVariables.IdFromPath">
-    <DisplayName>ExtractVariables.IdFromPath</DisplayName>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="ExtractVariables.NewsEntryIdFromPath">
+    <DisplayName>Get news entry ID from request path</DisplayName>
     <Source>request</Source>
     <Properties/>
     <URIPath name="id">

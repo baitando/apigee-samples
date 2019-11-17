@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<AssignMessage name="RaiseFault.Plain">
-    <DisplayName>RaiseFault.Plain</DisplayName>
+<AssignMessage name="AssignMessage.ConvertErrorToPlaintext">
+    <DisplayName>Derive error details for plaintext format</DisplayName>
 
     <Set>
         <Payload contentType="text/plain" variablePrefix="@" variableSuffix="#">@custom.error.detail#</Payload>

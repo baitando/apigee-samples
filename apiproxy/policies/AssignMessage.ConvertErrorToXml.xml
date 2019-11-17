@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<AssignMessage name="RaiseFault.XML">
-    <DisplayName>RaiseFault.XML</DisplayName>
+<AssignMessage name="AssignMessage.ConvertErrorToXml">
+    <DisplayName>Derive error details for XML format</DisplayName>
 
     <Set>
         <Payload contentType="application/xml" variablePrefix="@" variableSuffix="#">

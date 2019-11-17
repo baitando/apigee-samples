@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <AssignMessage async="false" continueOnError="false" enabled="true" name="AssignMessage.ForceInternalServerError">
-    <DisplayName>AssignMessage.ForceInternalServerError</DisplayName>
+    <DisplayName>Force internal server error by referencing unknown variable</DisplayName>
     <Set>
         <Payload contentType="application/json" variablePrefix="@" variableSuffix="#">
             {

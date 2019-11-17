@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <RaiseFault async="false" continueOnError="false" enabled="true" name="RaiseFault.UnknownNewsEntry">
-    <DisplayName>RaiseFault.UnknownNewsEntry</DisplayName>
+    <DisplayName>Indicate that the news entry does not exist</DisplayName>
 
     <FaultResponse>
         <Set>

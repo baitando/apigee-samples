@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<AssignMessage async="false" continueOnError="false" enabled="true" name="AssignMessage.DummyResponse.XML">
-    <DisplayName>AssignMessage.DummyResponse.XML</DisplayName>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AssignMessage.DummyResponseAsXml">
+    <DisplayName>Create dummy response in JSON format</DisplayName>
     <Set>
         <Payload contentType="application/xml">
             <news>

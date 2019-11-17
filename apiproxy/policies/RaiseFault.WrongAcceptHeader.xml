@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <RaiseFault async="false" continueOnError="false" enabled="true" name="RaiseFault.WrongAcceptHeader">
-    <DisplayName>RaiseFault.WrongAcceptHeader</DisplayName>
+    <DisplayName>Indicate that the accept header is set to an unsupported value</DisplayName>
 
     <FaultResponse>
         <Set>

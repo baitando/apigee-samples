@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<AssignMessage name="RaiseFault.JSON">
-    <DisplayName>RaiseFault.JSON</DisplayName>
+<AssignMessage name="AssignMessage.ConvertErrorToJson">
+    <DisplayName>Derive error details for JSON format</DisplayName>
 
     <Set>
         <Payload contentType="application/problem+json" variablePrefix="@" variableSuffix="#">
