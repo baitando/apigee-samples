@@ -3,16 +3,7 @@
 
     <DefaultFaultRule name="DefaultFaultRule">
         <Step>
-            <Name>AssignMessage.ConvertErrorToPlaintext</Name>
-            <Condition>(request.header.accept = null) or ((request.header.accept != "application/json") and (request.header.accept != "application/xml"))</Condition>
-        </Step>
-        <Step>
-            <Name>AssignMessage.ConvertErrorToJson</Name>
-            <Condition>(request.header.accept = "application/json")</Condition>
-        </Step>
-        <Step>
-            <Name>AssignMessage.ConvertErrorToXml</Name>
-            <Condition>(request.header.accept = "application/xml")</Condition>
+            <Name>FlowCallout.ErrorConversion</Name>
         </Step>
         <AlwaysEnforce>true</AlwaysEnforce>
     </DefaultFaultRule>
