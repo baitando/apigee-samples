@@ -3,6 +3,6 @@
     <DisplayName>Add details for automatically raised internal server error</DisplayName>
     <AssignVariable>
         <Name>custom.error.detail</Name>
-        <Value>Please check to find out why this error occured.</Value>
+        <Value>Please check to find out why this error occurred.</Value>
     </AssignVariable>
 </AssignMessage>
