@@ -45,3 +45,5 @@ To specify proper values, the file `calls/rest-client.env.json.example` needs to
 In the copied file it is necessary to fill in the desired values.
 
 [intellij-restclient]: https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html
+[apigee-apigeetool-npm]: https://www.npmjs.com/package/apigeetool
+
