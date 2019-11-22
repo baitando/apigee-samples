@@ -2,6 +2,8 @@
 
 This repository contains a sample API proxy and a shared flow, which demonstrate how proper and consistent error responses can be achieved when Apigee is used as API gateway.
 
+It was created as part of one of my posts on the mimacom blog, which will be published soon.
+
 ## Prerequisites
 
 To try it out, the following requirements need to be fulfilled.
