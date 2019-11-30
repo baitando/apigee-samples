@@ -2,7 +2,7 @@
 
 This repository contains a sample API proxy and a shared flow, which demonstrate how proper and consistent error responses can be achieved when Apigee is used as API gateway.
 
-It was created as part of one of my posts on the mimacom blog, which will be published soon.
+It was created as part of [one of my posts on the mimacom blog][blog-post].
 
 ## Prerequisites
 
@@ -48,4 +48,4 @@ In the copied file it is necessary to fill in the desired values.
 
 [intellij-restclient]: https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html
 [apigee-apigeetool-npm]: https://www.npmjs.com/package/apigeetool
-
+[blog-post]: https://blog.mimacom.com/apigee-error-handling-pattern/
